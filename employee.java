@@ -1,39 +1,64 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 public class Employee{
-    private int employee;
+    private String employeeID;
     private Date startTime;
     private Date endTime;
-    private double hour;
-    private double salary;
+    private ArrayList<Double> hoursList;
 
-    public int getEmployee(){
-        return this.employee;
+    public Employee(String employeeID) {
+        this.employeeID = employeeID;
+    }
+    
+    public String getEmployeeID(){
+        return this.employeeID;
     }
 
-    public void setEmployee(int employee){
-        this.employee = employee;
+    public void setEmployeeID(String employeeID){
+        this.employeeID = employeeID;
     }
 
     public void clockIn(){
-        // this.startTime = Calendar.getInstance().getTime();
-        this.startTime = new GregorianCalendar(2018, Calendar.JUNE, 25, 5, 0)
-      .getTime();
+        this.startTime = Calendar.getInstance().getTime();
     }
     
-    public void clockOut(){
-        // this.endTime = Calendar.getInstance().getTime();
-        this.endTime =new GregorianCalendar(2018, Calendar.JUNE, 27,23 , 0)
-      .getTime();
+    public void clockOutInput(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter hours: ");
+        int hours = input.nextInt();
+
+        System.out.print("Enter minutes: ");
+        int minutes = input.nextInt();
+
+        System.out.print("Enter seconds: ");
+        int seconds = input.nextInt();
+
+        input.close();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hours);
+        calendar.set(Calendar.MINUTE, minutes);
+        calendar.set(Calendar.SECOND, seconds);
+
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH));
+
+        this.endTime = calendar.getTime();
     }
 
-    public double calculateHours(){
-        var result = this.endTime.getTime() - this.startTime.getTime();
-        this.hour = (result / (1000*60*60)) % 24;
-        return this.hour;
+    public void clockOutReal(){
+        this.endTime = Calendar.getInstance().getTime();
     }
+
+    public void calculateHours() {
+        long result = this.endTime.getTime() - this.startTime.getTime();
+        double hours = (double) result / (1000 * 60 * 60);
+        this.hoursList.add(hours);
+    }
+
     public double calculateSeconds(){
         var result = this.endTime.getTime() - this.startTime.getTime();
         long seconds_difference = (result / 1000)% 60;   
