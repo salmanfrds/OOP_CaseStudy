@@ -49,21 +49,60 @@ public class App {
     }
 
     //naqash
-    public void regEmployee(ArrayList<Employee> employeeList) {
-   Scanner sc = new Scanner(System.in);
-  System.out.println("Enter the employee name: ");
-  String name = sc.nextLine();
-  System.out.println("Enter the employee ID: ");
-  int id = sc.nextInt();
-  System.out.println("Enter the employee designation: ");
-  String designation = sc.next();
-  Employee emp = new Employee(name, id, designation);
+   
+public void regEmployee(ArrayList<Employee> employeeList) {
+  
+  Scanner input = new Scanner(System.in);
 
-employeeList.add(emp);
-System.out.println("Employee registered successfully.");
-    
+  int choice;
 
+  do {
+   
+    System.out.println("Enter the employee name: ");
+    String name = input.nextLine();
+    System.out.println("Enter the employee ID: ");
+    int id = 0;
+  
+    Employee emp = new Employee();
+
+    emp.setName(name);
+    emp.setID(id);
+
+    employeeList.add(emp);
+
+    System.out.println("Employee registered successfully.");
+
+    System.out.println("Do you want to register another employee?");
+    System.out.println("1. Yes");
+    System.out.println("2. No");
+    System.out.print("Enter your choice: ");
+
+    try {
+      
+      choice = input.nextInt();
+
+      if (choice < 1 || choice > 2) {
+       
+        throw new InputMismatchException("Invalid choice. Please enter 1 or 2.");
+      }
+    } catch (InputMismatchException e) {
+     
+      System.out.println(e.getMessage());
+      
+      choice = 1;
+    } catch (NoSuchElementException e) {
+     
+      System.out.println("No input found. Please enter a valid choice.");
+
+      choice = 1;
     }
+
+    input.nextLine();
+
+  } while (choice == 1);
+
+  input.close();
+}
 
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
         for (Employee employee : employeeList) {
