@@ -49,7 +49,19 @@ public class App {
     }
 
     //naqash
-    private static void regEmployee(ArrayList<Employee> employeeList) {
+    public void regEmployee(ArrayList<Employee> employeeList) {
+   Scanner sc = new Scanner(System.in);
+  System.out.println("Enter the employee name: ");
+  String name = sc.nextLine();
+  System.out.println("Enter the employee ID: ");
+  int id = sc.nextInt();
+  System.out.println("Enter the employee designation: ");
+  String designation = sc.next();
+  Employee emp = new Employee(name, id, designation);
+
+employeeList.add(emp);
+System.out.println("Employee registered successfully.");
+    
 
     }
 
