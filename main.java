@@ -10,7 +10,42 @@ public class App {
 
     //salman
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
+        Scanner input = new Scanner(System.in);
 
+        System.out.print("Enter employee ID: ");
+        String employeeID = input.next();
+
+        Employee employee = findEmployee(employeeList, employeeID);
+
+        if (employee == null) {
+            System.out.println("Employee not found.");
+        }
+
+        System.out.println("1. Check-in");
+        System.out.println("2. Input Check-out time");
+        System.out.println("3. Check-out using current time");
+
+        System.out.print("Enter your choice: ");
+        int checkChoice = input.nextInt();
+
+        switch (checkChoice) {
+            case 1:
+                employee.clockIn();
+                System.out.println("Checked in successfully.");
+                break;
+            case 2:
+                employee.clockOutInput();
+                System.out.println("Checked out with user-set time successfully.");
+                break;
+            case 3:
+                employee.clockOutReal();
+                System.out.println("Checked out with real-time successfully.");
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+        //input.nextLine();
+        input.close();
     }
 
     //naqash
