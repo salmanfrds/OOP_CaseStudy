@@ -4,30 +4,24 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Employee{
-    
+    private String employeeID;
     private Date startTime;
     private Date endTime;
     private ArrayList<Double> hoursList;
     private String name;
-    private int employeeID;
-    private String name;
 
-   public Employee(int employeeID, String name) {
-    this.employeeID = employeeID;
-    this.name = name;
-  }
-    public int getEmployeeID() {
-    return employeeID;
-  }
- public void setEmployeeID(int employeeID) {
-    this.employeeID = employeeID;
-  }
-     public String getName() {
-    return name;
-  }
-     public void setName(String name) {
-    this.name = name;
-  }
+    public Employee(String employeeID) {
+        this.employeeID = employeeID;
+    }
+    
+    public String getEmployeeID(){
+        return this.employeeID;
+    }
+
+    public void setEmployeeID(String employeeID){
+        this.employeeID = employeeID;
+    }
+
     public void clockIn(){
         this.startTime = Calendar.getInstance().getTime();
     }
@@ -70,5 +64,13 @@ public class Employee{
         var result = this.endTime.getTime() - this.startTime.getTime();
         long seconds_difference = (result / 1000)% 60;   
         return seconds_difference;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
     }
 }
