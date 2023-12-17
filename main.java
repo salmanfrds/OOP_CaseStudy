@@ -13,19 +13,18 @@ public class App {
         Employee employee = findEmployee(employeeList, employeeID);
         {
             if(employee != null){
-
                 double hourlyRate = 6.0;
-
-                double salary = hourlyRate * employee.calculateHours();
+                double hoursWorked = employee.calculateHours(); 
+                double salary = hourlyRate * hoursWorked; 
 
                 double epfContribution = 0.11 * salary;
                 salary -= epfContribution;
 
                 System.out.println("Employee ID: " + employee.getEmployeeID());
                 System.out.println("Employee Name: " + employee.getName());
-                System.out.println("Employee Hours Worked: " + employee.calculateHours());
+                System.out.println("Employee Hours Worked: " + hoursWorked);
                 System.out.println("Total salary (after EPF deduction): RM " + salary);
-             }
+            }
              else{
                 System.out.println("Employee not found.");
              }
