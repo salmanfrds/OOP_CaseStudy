@@ -13,8 +13,17 @@ public class App {
         Employee employee = findEmployee(employeeList, employeeID);
         {
             if(employee != null){
+                if(employee.clockIn() == null || employee.clockOutReal() == null){
+                    throw new IllegalStateException("Employee has not checked in or out. Cannot calculate salary");
+                }
+
                 double hourlyRate = 6.0;
                 double hoursWorked = employee.calculateHours(); 
+
+                if(hoursWorked < 1.0){
+                    throw new IllegalArgumentException("Working hours are less than 1 hour. Cannot calculate salary");
+                }
+
                 double salary = hourlyRate * hoursWorked; 
 
                 double epfContribution = 0.11 * salary;
@@ -32,6 +41,7 @@ public class App {
         input.close();
         return;
     }
+
 
     //salman
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
