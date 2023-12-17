@@ -10,26 +10,28 @@ public class App {
         System.out.println("Enter employee ID to calculate salary: ");
         String employeeID = input.next();
 
-        for (Employee employee : employeeList) {
-            if(String.valueOf(employee.getEmployeeID()).matches(employeeID)){
+        Employee employee = findEmployee(employeeList, employeeID);
+        {
+            if(employee != null){
 
                 double hourlyRate = 6.0;
 
-                double salary = hourlyRate * employee.getHoursWorked();
+                double salary = hourlyRate * employee.calculateHours();
 
                 double epfContribution = 0.11 * salary;
                 salary -= epfContribution;
 
                 System.out.println("Employee ID: " + employee.getEmployeeID());
                 System.out.println("Employee Name: " + employee.getName());
-                System.out.println("Employee Hours Worked: " + employee.getHoursWorked());
+                System.out.println("Employee Hours Worked: " + employee.calculateHours());
                 System.out.println("Total salary (after EPF deduction): RM " + salary);
+
+                
 
             }
         }
         input.close();
         return;
-        
     }
 
     //salman
