@@ -25,11 +25,10 @@ public class App {
                 System.out.println("Employee Hours Worked: " + employee.getHoursWorked());
                 System.out.println("Total salary (after EPF deduction): RM " + salary);
 
-                input.close();
-                return;
-
             }
         }
+        input.close();
+        return;
         
     }
 
