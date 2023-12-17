@@ -73,4 +73,12 @@ public class Employee{
     public void setName(String name) {
         this.name = name;
     }
+    public double getHoursWorked() {
+      calculateHours();
+      double totalHours = 0.0;
+      for(Double hours : hoursList){
+        totalHours += hours;
+      }
+      return totalHours;
+    }
 }
