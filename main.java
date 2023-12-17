@@ -13,7 +13,8 @@ public class App {
         Employee employee = findEmployee(employeeList, employeeID);
         {
             if(employee != null){
-                if(employee.clockIn() == null || employee.clockOutReal() == null){
+                if(employee.getStartTime() == null || employee.getEndTime() == null){
+                    input.close();
                     throw new IllegalStateException("Employee has not checked in or out. Cannot calculate salary");
                 }
 
@@ -21,6 +22,7 @@ public class App {
                 double hoursWorked = employee.calculateHours(); 
 
                 if(hoursWorked < 1.0){
+                    input.close();
                     throw new IllegalArgumentException("Working hours are less than 1 hour. Cannot calculate salary");
                 }
 
