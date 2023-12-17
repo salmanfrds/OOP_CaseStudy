@@ -81,14 +81,11 @@ public void regEmployee(ArrayList<Employee> employeeList) {
 
     switch (choice) {
       case 1:
-        // do nothing, continue the loop
         break;
       case 2:
-        // exit the loop
         choice = 0;
         break;
       default:
-        // invalid choice, display a message and continue the loop
         System.out.println("Invalid choice. Please enter 1 or 2.");
         choice = 1;
         break;
