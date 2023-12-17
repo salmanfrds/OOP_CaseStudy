@@ -14,29 +14,27 @@ public class App {
         
         if(employee != null){
             if(employee.getStartTime() == null || employee.getEndTime() == null){
-                throw new IllegalStateException("Employee has not checked in or out. Cannot calculate salary");
+                System.out.println("Employee has not checked in or out. Cannot calculate salary");
             } else {
-                double hourlyRate = 6.0;
                 double hoursWorked = employee.calculateHours(); 
                 if(hoursWorked < 1.0){
-                    throw new IllegalArgumentException("Working hours are less than 1 hour. Cannot calculate salary");
+                    System.out.println("Working hours are less than 1 hour. Cannot calculate salary");
+                } else {
+                    double salary = 6 * hoursWorked; 
+                    double epfContribution = 0.11 * salary;
+                    salary -= epfContribution;
+
+                    System.out.println("Employee ID: " + employee.getEmployeeID());
+                    System.out.println("Employee Name: " + employee.getName());
+                    System.out.println("Employee Hours Worked: " +  hoursWorked);
+                    System.out.println("Total salary (after EPF deduction): RM " + salary);
                 }
-                double salary = hourlyRate * hoursWorked; 
-                double epfContribution = 0.11 * salary;
-                salary -= epfContribution;
-                System.out.println("Employee ID: " + employee.getEmployeeID());
-                System.out.println("Employee Name: " + employee.getName());
-                System.out.println("Employee Hours Worked: " + hoursWorked);
-                System.out.println("Total salary (after EPF deduction): RM " + salary);
             }
+
         } else {
             System.out.println("Employee not found.");
         }
-        
-        input.close();
-        return;
     }
-    
 
     //salman
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
@@ -49,33 +47,31 @@ public class App {
 
         if (employee == null) {
             System.out.println("Employee not found.");
+        } else {
+            System.out.println("1. Check-in");
+            System.out.println("2. Input Check-out time");
+            System.out.println("3. Check-out using current time");
+
+            System.out.print("Enter your choice: ");
+            int checkChoice = input.nextInt();
+
+            switch (checkChoice) {
+                case 1:
+                    employee.clockIn();
+                    System.out.println("Checked in successfully.");
+                    break;
+                case 2:
+                    employee.clockOutInput();
+                    System.out.println("Checked out with user-set time successfully.");
+                    break;
+                case 3:
+                    employee.clockOutReal();
+                    System.out.println("Checked out with real-time successfully.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
         }
-
-        System.out.println("1. Check-in");
-        System.out.println("2. Input Check-out time");
-        System.out.println("3. Check-out using current time");
-
-        System.out.print("Enter your choice: ");
-        int checkChoice = input.nextInt();
-
-        switch (checkChoice) {
-            case 1:
-                employee.clockIn();
-                System.out.println("Checked in successfully.");
-                break;
-            case 2:
-                employee.clockOutInput();
-                System.out.println("Checked out with user-set time successfully.");
-                break;
-            case 3:
-                employee.clockOutReal();
-                System.out.println("Checked out with real-time successfully.");
-                break;
-            default:
-                System.out.println("Invalid choice. Please try again.");
-        }
-        //input.nextLine();
-        input.close();
     }
 
     //naqash
@@ -87,9 +83,10 @@ public class App {
             System.out.println("Enter the employee name: ");
             String name = input.nextLine();
             System.out.println("Enter the employee ID: ");
-            int id = 0;
+            String id = input.nextLine();
             
-            Employee emp = new Employee(name);
+            Employee emp = new Employee(id);
+            emp.setName(name);
             employeeList.add(emp);
 
             System.out.println("Employee registered successfully.");
@@ -103,7 +100,6 @@ public class App {
                 case 1:
                     break;
                 case 2:
-                    choice = 0;
                     break;
                 default:
                     System.out.println("Invalid choice. Please enter 1 or 2.");
@@ -113,8 +109,6 @@ public class App {
             input.nextLine();
 
         } while (choice == 1);
-        input.close();
-
     }           
 
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
@@ -129,8 +123,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
+        int exit = 1;
 
-        while (true) {
+        while (exit != 0) {
             System.out.println("Main Menu:");
             System.out.println("1. Check in or Check out");
             System.out.println("2. Register new employee");
@@ -152,11 +147,12 @@ public class App {
                     break;
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
-                    input.close();
+                    exit = 0;
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+        input.close();
     }
 }
