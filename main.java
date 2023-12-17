@@ -77,24 +77,21 @@ public void regEmployee(ArrayList<Employee> employeeList) {
     System.out.println("2. No");
     System.out.print("Enter your choice: ");
 
-    try {
-      
-      choice = input.nextInt();
+    choice = input.nextInt();
 
-      if (choice < 1 || choice > 2) {
-       
-        throw new InputMismatchException("Invalid choice. Please enter 1 or 2.");
-      }
-    } catch (InputMismatchException e) {
-     
-      System.out.println(e.getMessage());
-      
-      choice = 1;
-    } catch (NoSuchElementException e) {
-     
-      System.out.println("No input found. Please enter a valid choice.");
-
-      choice = 1;
+    switch (choice) {
+      case 1:
+        // do nothing, continue the loop
+        break;
+      case 2:
+        // exit the loop
+        choice = 0;
+        break;
+      default:
+        // invalid choice, display a message and continue the loop
+        System.out.println("Invalid choice. Please enter 1 or 2.");
+        choice = 1;
+        break;
     }
 
     input.nextLine();
@@ -103,6 +100,7 @@ public void regEmployee(ArrayList<Employee> employeeList) {
 
   input.close();
 }
+
 
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
         for (Employee employee : employeeList) {
