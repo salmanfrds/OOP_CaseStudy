@@ -11,39 +11,32 @@ public class App {
         String employeeID = input.next();
 
         Employee employee = findEmployee(employeeList, employeeID);
-        {
-            if(employee != null){
-                if(employee.getStartTime() == null || employee.getEndTime() == null){
-                    input.close();
-                    throw new IllegalStateException("Employee has not checked in or out. Cannot calculate salary");
-                }
-
+        
+        if(employee != null){
+            if(employee.getStartTime() == null || employee.getEndTime() == null){
+                throw new IllegalStateException("Employee has not checked in or out. Cannot calculate salary");
+            } else {
                 double hourlyRate = 6.0;
                 double hoursWorked = employee.calculateHours(); 
-
                 if(hoursWorked < 1.0){
-                    input.close();
                     throw new IllegalArgumentException("Working hours are less than 1 hour. Cannot calculate salary");
                 }
-
                 double salary = hourlyRate * hoursWorked; 
-
                 double epfContribution = 0.11 * salary;
                 salary -= epfContribution;
-
                 System.out.println("Employee ID: " + employee.getEmployeeID());
                 System.out.println("Employee Name: " + employee.getName());
                 System.out.println("Employee Hours Worked: " + hoursWorked);
                 System.out.println("Total salary (after EPF deduction): RM " + salary);
             }
-             else{
-                System.out.println("Employee not found.");
-             }
+        } else {
+            System.out.println("Employee not found.");
         }
+        
         input.close();
         return;
     }
-
+    
 
     //salman
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
@@ -96,8 +89,7 @@ public class App {
             System.out.println("Enter the employee ID: ");
             int id = 0;
             
-            Employee emp = new Employee(id);
-            emp.setName(name);
+            Employee emp = new Employee(name);
             employeeList.add(emp);
 
             System.out.println("Employee registered successfully.");
@@ -122,6 +114,7 @@ public class App {
 
         } while (choice == 1);
         input.close();
+
     }           
 
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
