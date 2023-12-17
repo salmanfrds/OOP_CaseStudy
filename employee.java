@@ -58,6 +58,8 @@ public class Employee{
         long result = this.endTime.getTime() - this.startTime.getTime();
         double hours = (double) result / (1000 * 60 * 60);
         this.hoursList.add(hours);
+
+        return hours;
     }
 
     public double calculateSeconds(){
@@ -73,4 +75,13 @@ public class Employee{
     public void setName(String name) {
         this.name = name;
     }
+
+    public Date getStartTime(){
+        return this.startTime;
+    }
+    
+    public Date getEndTime(){
+        return this.endTime;
+    }
 }
+
