@@ -54,7 +54,7 @@ public class Employee{
         this.endTime = Calendar.getInstance().getTime();
     }
 
-    public void calculateHours() {
+    public double calculateHours() {
         long result = this.endTime.getTime() - this.startTime.getTime();
         double hours = (double) result / (1000 * 60 * 60);
         this.hoursList.add(hours);
