@@ -38,8 +38,6 @@ public class Employee{
         System.out.print("Enter seconds: ");
         int seconds = input.nextInt();
 
-        input.close();
-
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hours);
         calendar.set(Calendar.MINUTE, minutes);
@@ -57,7 +55,7 @@ public class Employee{
     public double calculateHours() {
         long result = this.endTime.getTime() - this.startTime.getTime();
         double hours = (double) result / (1000 * 60 * 60);
-        this.hoursList.add(hours);
+        //this.hoursList.add(hours);
 
         return hours;
     }
