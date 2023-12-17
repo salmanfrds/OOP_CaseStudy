@@ -5,7 +5,7 @@ public class App {
 
     //hakimi
     public static void calculateSalary(ArrayList<Employee> employeeList){
-
+        
     }
 
     //salman
@@ -49,55 +49,43 @@ public class App {
     }
 
     //naqash
-   
-public void regEmployee(ArrayList<Employee> employeeList) {
-  
-  Scanner input = new Scanner(System.in);
+    private static void regEmployee(ArrayList<Employee> employeeList) {
+        Scanner input = new Scanner(System.in);
+        int choice;
+        
+        do {
+            System.out.println("Enter the employee name: ");
+            String name = input.nextLine();
+            System.out.println("Enter the employee ID: ");
+            int id = 0;
+            
+            Employee emp = new Employee(id);
+            emp.setName(name);
+            employeeList.add(emp);
 
-  int choice;
+            System.out.println("Employee registered successfully.");
+            System.out.println("Do you want to register another employee?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.print("Enter your choice: ");
 
-  do {
-   
-    System.out.println("Enter the employee name: ");
-    String name = input.nextLine();
-    System.out.println("Enter the employee ID: ");
-    int id = 0;
-  
-    Employee emp = new Employee();
-
-    emp.setName(name);
-    emp.setID(id);
-
-    employeeList.add(emp);
-
-    System.out.println("Employee registered successfully.");
-
-    System.out.println("Do you want to register another employee?");
-    System.out.println("1. Yes");
-    System.out.println("2. No");
-    System.out.print("Enter your choice: ");
-
-    choice = input.nextInt();
-
-    switch (choice) {
-      case 1:
-        break;
-      case 2:
-        choice = 0;
-        break;
-      default:
-        System.out.println("Invalid choice. Please enter 1 or 2.");
-        choice = 1;
-        break;
-    }
-
-    input.nextLine();
-
-  } while (choice == 1);
-
-  input.close();
-}
-
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                  break;
+                case 2:
+                  choice = 0;
+                  break;
+                default:
+                  System.out.println("Invalid choice. Please enter 1 or 2.");
+                  choice = 1;
+                  break;
+            }
+            input.nextLine();
+            
+        } while (choice == 1);
+        input.close();
+    }           
 
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
         for (Employee employee : employeeList) {
@@ -110,7 +98,7 @@ public void regEmployee(ArrayList<Employee> employeeList) {
     
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> employeeList = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         while (true) {
             System.out.println("Main Menu:");
@@ -120,7 +108,7 @@ public void regEmployee(ArrayList<Employee> employeeList) {
             System.out.println("0. Exit");
 
             System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = input.nextInt();
 
             switch (choice) {
                 case 1:
@@ -134,7 +122,7 @@ public void regEmployee(ArrayList<Employee> employeeList) {
                     break;
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
-                    scanner.close();
+                    input.close();
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
