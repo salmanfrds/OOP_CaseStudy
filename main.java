@@ -72,17 +72,17 @@ public class App {
             choice = input.nextInt();
             switch (choice) {
                 case 1:
-                  break;
+                    break;
                 case 2:
-                  choice = 0;
-                  break;
+                    choice = 0;
+                    break;
                 default:
-                  System.out.println("Invalid choice. Please enter 1 or 2.");
-                  choice = 1;
-                  break;
+                    System.out.println("Invalid choice. Please enter 1 or 2.");
+                    choice = 1;
+                    break;
             }
             input.nextLine();
-            
+
         } while (choice == 1);
         input.close();
     }           
