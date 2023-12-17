@@ -5,6 +5,31 @@ public class App {
 
     //hakimi
     public static void calculateSalary(ArrayList<Employee> employeeList){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter employee ID to calculate salary: ");
+        String employeeID = input.next();
+
+        for (Employee employee : employeeList) {
+            if(String.valueOf(employee.getEmployeeID()).matches(employeeID)){
+
+                double hourlyRate = 6.0;
+
+                double salary = hourlyRate * employee.getHoursWorked();
+
+                double epfContribution = 0.11 * salary;
+                salary -= epfContribution;
+
+                System.out.println("Employee ID: " + employee.getEmployeeID());
+                System.out.println("Employee Name: " + employee.getName());
+                System.out.println("Employee Hours Worked: " + employee.getHoursWorked());
+                System.out.println("Total salary (after EPF deduction): RM " + salary);
+
+                input.close();
+                return;
+
+            }
+        }
         
     }
 
