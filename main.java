@@ -25,10 +25,10 @@ public class App {
                 System.out.println("Employee Name: " + employee.getName());
                 System.out.println("Employee Hours Worked: " + employee.calculateHours());
                 System.out.println("Total salary (after EPF deduction): RM " + salary);
-
-                
-
-            }
+             }
+             else{
+                System.out.println("Employee not found.");
+             }
         }
         input.close();
         return;
