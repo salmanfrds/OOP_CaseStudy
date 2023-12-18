@@ -142,9 +142,30 @@ public class App {
         return null;
     }
     
-    public static void hoursRecord(){
+    public static void hoursRecord(ArrayList<Employee> employeeList){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter employee ID to show Hours Records (First 22 records): ");
+        String employeeID = input.next();
         //1. using find employee method
-        //2. iterate using for loop
+        Employee employee = findEmployee(employeeList, employeeID);
+
+        if(employee != null){
+            System.out.println("Employee Working Hours Records (First 22 records):");
+            System.out.println("------------------------------------------------");
+            System.out.println("Employee ID: " + employee.getEmployeeID());
+            System.out.println("Employee name: " + employee.getName());
+            System.out.println("------------------------------------------------");
+            //2. iterate using for loop
+
+            for(int i = 0; i < employee.getHoursArray().length; i++){
+                if(employee.getHoursArray()[i] != null){
+                    System.out.println("Hours worked on day " + (i+1) + ": " + employee.getHoursArray()[i]);
+                }
+            }
+        } else {
+            System.out.println("Employee not found.");
+        }
         //3. each loop will printout the value of one array
         //4. do not print when the value is null, using if
     }
@@ -178,7 +199,7 @@ public class App {
                     calculateSalary(employeeList);
                     break;
                 case 4:
-                    hoursRecord();
+                    hoursRecord(employeeList);
                     break;
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
