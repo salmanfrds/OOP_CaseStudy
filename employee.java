@@ -61,6 +61,10 @@ public class Employee{
         return Hours;
     }
 
+    public Double[] getHoursArray() {
+        return hoursArray;
+    }
+
     public void storeHours(Double hours){
         for (int i = 0; i < hoursArray.length; i++) {
             if (hoursArray[i] == null) {
@@ -88,4 +92,3 @@ public class Employee{
         return this.endTime;
     }
 }
-
