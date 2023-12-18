@@ -55,7 +55,6 @@ public class App {
             System.out.println("1. Check-in");
             System.out.println("2. Input Check-out time");
             System.out.println("3. Check-out using current time");
-            System.out.println("4. Employee working hours record(first 22 records)");
             System.out.println("");
 
             System.out.print("Enter your choice: ");
