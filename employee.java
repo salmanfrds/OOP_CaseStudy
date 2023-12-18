@@ -1,15 +1,14 @@
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Employee{
     private String employeeID;
+    private String name;
     private Date startTime;
     private Date endTime;
-    private ArrayList<Double> hoursList = new ArrayList<>(Collections.nCopies(22, null));
-    private String name;
+    private Double[] hoursArray = new Double[22];
+    private Double Hours;
 
     public Employee(String employeeID) {
         this.employeeID = employeeID;
@@ -30,7 +29,6 @@ public class Employee{
     public void clockOutInput(){
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n-[Enter the time in 24-Hours format]-\n");
         System.out.print("Enter hours: ");
         int hours = input.nextInt();
 
@@ -54,15 +52,24 @@ public class Employee{
     public double calculateHours() {
         long result = this.endTime.getTime() - this.startTime.getTime();
         double hours = (double) result / (1000 * 60 * 60);
-        //this.hoursList.add(hours);
 
+        this.Hours = hours;
         return hours;
     }
 
-    public double calculateSeconds(){
-        var result = this.endTime.getTime() - this.startTime.getTime();
-        long seconds_difference = (result / 1000)% 60;   
-        return seconds_difference;
+    public Double getHours(){
+        return Hours;
+    }
+
+    public void storeHours(Double hours){
+        for (int i = 0; i < hoursArray.length; i++) {
+            if (hoursArray[i] == null) {
+                hoursArray[i] = hours;
+                return;
+            } else {
+                System.out.println("Array is full. Cannot add more hours.");
+            }
+        }
     }
 
     public String getName() {
