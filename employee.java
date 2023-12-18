@@ -30,6 +30,7 @@ public class Employee{
     public void clockOutInput(){
         Scanner input = new Scanner(System.in);
 
+        System.out.println("\n-[Enter the time in 24-Hours format]-\n");
         System.out.print("Enter hours: ");
         int hours = input.nextInt();
 
