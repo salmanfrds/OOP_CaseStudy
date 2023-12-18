@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ public class Employee{
     private String employeeID;
     private Date startTime;
     private Date endTime;
-    private ArrayList<Double> hoursList;
+    private ArrayList<Double> hoursList = new ArrayList<>(Collections.nCopies(22, null));
     private String name;
 
     public Employee(String employeeID) {
