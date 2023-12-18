@@ -153,7 +153,7 @@ public class App {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         int exit = 1;
- System.out.println("Welcome!!\n Please choose appropriate options  ");
+ System.out.println("        Welcome!!\r\n Please choose appropriate options  ");
         while (exit != 0) {
             System.out.println("");
             System.out.println("Main Menu:");
