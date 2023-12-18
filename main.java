@@ -17,9 +17,11 @@ public class App {
                 System.out.println("Employee has not checked in or out. Cannot calculate salary");
             } else {
                 double hoursWorked = employee.calculateHours(); 
-                employee.storeHours(employee.getHours());
+                employee.storeHours(hoursWorked);
+
                 if(hoursWorked < 1.0){
                     System.out.println("Working hours are less than 1 hour. Cannot calculate salary");
+                    employee.reset();
                 } else {
                     double salary = 6 * hoursWorked; 
                     double epfContribution = 0.11 * salary;
@@ -31,6 +33,8 @@ public class App {
                     System.out.println("Employee Hours Worked: " +  String.format("%.1f", hoursWorked));
                     System.out.println("Total salary (after EPF deduction): RM " + String.format("%.1f", salary));
                     System.out.println("");
+
+                    employee.reset();
                 }
             }
 
@@ -147,7 +151,7 @@ public class App {
 
         System.out.println("Enter employee ID to show Hours Records (First 22 records): ");
         String employeeID = input.next();
-        //1. using find employee method
+
         Employee employee = findEmployee(employeeList, employeeID);
 
         if(employee != null){
@@ -155,26 +159,26 @@ public class App {
             System.out.println("------------------------------------------------");
             System.out.println("Employee ID: " + employee.getEmployeeID());
             System.out.println("Employee name: " + employee.getName());
-            System.out.println("------------------------------------------------");
-            //2. iterate using for loop
 
             for(int i = 0; i < employee.getHoursArray().length; i++){
-                if(employee.getHoursArray()[i] != null){
-                    System.out.println("Hours worked on day " + (i+1) + ": " + employee.getHoursArray()[i]);
+                if(employee.getHoursArray()[i] == null){
+                    System.out.println("Hours worked on day " + (i+1) + ": " + "unregistered");
+                } else {
+                    //String hours = employee.getHoursArray()[i].toString();
+                    var hours = employee.getHoursArray()[i];
+                    System.out.println("Hours worked on day " + (i+1) + ": " +  String.format("%.1f", hours));
                 }
             }
         } else {
             System.out.println("Employee not found.");
         }
-        //3. each loop will printout the value of one array
-        //4. do not print when the value is null, using if
     }
 
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         int exit = 1;
- System.out.println("        Welcome!!\r\n Please choose appropriate options  ");
+
         while (exit != 0) {
             System.out.println("");
             System.out.println("Main Menu:");
