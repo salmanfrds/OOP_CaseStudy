@@ -36,13 +36,10 @@ public class Employee{
         System.out.print("Enter minutes: ");
         int minutes = input.nextInt();
 
-        System.out.print("Enter seconds: ");
-        int seconds = input.nextInt();
-
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hours);
         calendar.set(Calendar.MINUTE, minutes);
-        calendar.set(Calendar.SECOND, seconds);
+        calendar.set(Calendar.SECOND, 0);
 
         calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH));
 
