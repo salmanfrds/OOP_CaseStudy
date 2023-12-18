@@ -27,7 +27,7 @@ public class App {
                     System.out.println("Employee ID: " + employee.getEmployeeID());
                     System.out.println("Employee Name: " + employee.getName());
                     System.out.println("Employee Hours Worked: " +  hoursWorked);
-                    System.out.println("Total salary (after EPF deduction): RM " + salary);
+                    System.out.println("Total salary (after EPF deduction): RM " + String.format("%.2f",salary));
                 }
             }
 
