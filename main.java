@@ -127,8 +127,8 @@ public class App {
 
         while (exit != 0) {
             System.out.println("Main Menu:");
-            System.out.println("1. Check in or check out");
-            System.out.println("2. Register new employee");
+            System.out.println("1. Register new employee");
+            System.out.println("2. Check in or Check out");
             System.out.println("3. Calculate Salary");
             System.out.println("0. Exit");
 
@@ -137,10 +137,10 @@ public class App {
 
             switch (choice) {
                 case 1:
-                    checkInOrOut(employeeList);
+                    regEmployee(employeeList);
                     break;
                 case 2:
-                    regEmployee(employeeList);
+                    checkInOrOut(employeeList);
                     break;
                 case 3:
                     calculateSalary(employeeList);
