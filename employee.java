@@ -70,10 +70,9 @@ public class Employee{
             if (hoursArray[i] == null) {
                 hoursArray[i] = hours;
                 return;
-            } else {
-                System.out.println("Array is full. Cannot add more hours.");
             }
         }
+        System.out.println("Array is full. Cannot add more hours.");
     }
 
     public String getName() {
@@ -90,5 +89,11 @@ public class Employee{
     
     public Date getEndTime(){
         return this.endTime;
+    }
+
+    public void reset(){
+        this.startTime = null;
+        this.endTime = null;
+        this.Hours = null;
     }
 }
