@@ -143,6 +143,13 @@ public class App {
         return null;
     }
     
+    public static void hoursRecord(){
+        //1. using find employee method
+        //2. iterate using for loop
+        //3. each loop will printout the value of one array
+        //4. do not print when the value is null, using if
+    }
+
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
@@ -154,6 +161,7 @@ public class App {
             System.out.println("1. Register new employee");
             System.out.println("2. Check in or Check out");
             System.out.println("3. Calculate Salary");
+            System.out.println("4. Employee working hours record(first 22 records)");
             System.out.println("0. Exit");
             System.out.println("");
 
@@ -169,6 +177,9 @@ public class App {
                     break;
                 case 3:
                     calculateSalary(employeeList);
+                    break;
+                case 4:
+                    hoursRecord();
                     break;
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
