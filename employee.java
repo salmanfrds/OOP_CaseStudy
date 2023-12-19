@@ -2,7 +2,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Employee{
+public class Employee {
     private String employeeID;
     private String name;
     private Date startTime;
@@ -13,22 +13,23 @@ public class Employee{
     public Employee(String employeeID) {
         this.employeeID = employeeID;
     }
-    
-    public String getEmployeeID(){
+
+    public String getEmployeeID() {
         return this.employeeID;
     }
 
-    public void setEmployeeID(String employeeID){
+    public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
     }
 
-    public void clockIn(){
+    public void clockIn() {
         this.startTime = Calendar.getInstance().getTime();
     }
-    
-    public void clockOutInput(){
+
+    public void clockOutInput() {
         Scanner input = new Scanner(System.in);
 
+        System.out.println("  Please enter the time \r\n NOTE : The time format is in 24hrs  ");
         System.out.print("Enter hours: ");
         int hours = input.nextInt();
 
@@ -45,7 +46,7 @@ public class Employee{
         this.endTime = calendar.getTime();
     }
 
-    public void clockOutReal(){
+    public void clockOutReal() {
         this.endTime = Calendar.getInstance().getTime();
     }
 
@@ -57,7 +58,7 @@ public class Employee{
         return hours;
     }
 
-    public Double getHours(){
+    public Double getHours() {
         return Hours;
     }
 
@@ -65,7 +66,7 @@ public class Employee{
         return hoursArray;
     }
 
-    public void storeHours(Double hours){
+    public void storeHours(Double hours) {
         for (int i = 0; i < hoursArray.length; i++) {
             if (hoursArray[i] == null) {
                 hoursArray[i] = hours;
@@ -78,20 +79,20 @@ public class Employee{
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public Date getStartTime(){
+    public Date getStartTime() {
         return this.startTime;
     }
-    
-    public Date getEndTime(){
+
+    public Date getEndTime() {
         return this.endTime;
     }
 
-    public void reset(){
+    public void reset() {
         this.startTime = null;
         this.endTime = null;
         this.Hours = null;
