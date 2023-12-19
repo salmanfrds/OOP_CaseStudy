@@ -43,7 +43,7 @@ public class App {
         }
     }
 
-    // salman
+    // Firdaus Muahammad Salman(2223281)
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
@@ -175,6 +175,7 @@ public class App {
         }
     }
 
+    // Firdaus Muahammad Salman(2223281)
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
