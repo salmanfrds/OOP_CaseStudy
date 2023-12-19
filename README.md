@@ -25,4 +25,4 @@ Welcome to our group’s program! We have created a payroll management system th
 3. Calculate employees’ salary per work hour
 4. Track record of the employee’s recent working hours (first 22 working hours)
 
-The class diagram will be provided in I-taleem.m
+The class diagram will be provided in I-taleem. :)
