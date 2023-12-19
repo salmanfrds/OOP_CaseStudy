@@ -15,7 +15,7 @@ Mohamad Nur Hakimi bin Asmadi 2213091
   
 Naqash Mohd Aouf 2224251
 - Class diagram
-- regEmployee
+- regEmployee method
 - Testing & Code Improvement
 
 Welcome to our group’s program! We have created a payroll management system that allows the user (manager) to access the program and calculate the employees’ salaries. The system has four main features:
