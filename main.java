@@ -3,34 +3,34 @@ import java.util.Scanner;
 
 public class App {
 
-    //hakimi
-    public static void calculateSalary(ArrayList<Employee> employeeList){
+    // hakimi
+    public static void calculateSalary(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter employee ID to calculate salary: ");
         String employeeID = input.next();
 
         Employee employee = findEmployee(employeeList, employeeID);
-        
-        if(employee != null){
-            if(employee.getStartTime() == null || employee.getEndTime() == null){
+
+        if (employee != null) {
+            if (employee.getStartTime() == null || employee.getEndTime() == null) {
                 System.out.println("Employee has not checked in or out. Cannot calculate salary");
             } else {
-                double hoursWorked = employee.calculateHours(); 
+                double hoursWorked = employee.calculateHours();
                 employee.storeHours(hoursWorked);
 
-                if(hoursWorked < 1.0){
+                if (hoursWorked < 1.0) {
                     System.out.println("Working hours are less than 1 hour. Cannot calculate salary");
                     employee.reset();
                 } else {
-                    double salary = 6 * hoursWorked; 
+                    double salary = 6 * hoursWorked;
                     double epfContribution = 0.11 * salary;
                     salary -= epfContribution;
 
                     System.out.println("");
                     System.out.println("Employee ID: " + employee.getEmployeeID());
                     System.out.println("Employee Name: " + employee.getName());
-                    System.out.println("Employee Hours Worked: " +  String.format("%.1f", hoursWorked));
+                    System.out.println("Employee Hours Worked: " + String.format("%.1f", hoursWorked));
                     System.out.println("Total salary (after EPF deduction): RM " + String.format("%.1f", salary));
                     System.out.println("");
 
@@ -43,7 +43,7 @@ public class App {
         }
     }
 
-    //salman
+    // salman
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
@@ -66,7 +66,7 @@ public class App {
 
             switch (checkChoice) {
                 case 1:
-                    if (employee.getStartTime() == null){
+                    if (employee.getStartTime() == null) {
                         employee.clockIn();
                         System.out.println("Checked in successfully.");
                         break;
@@ -75,7 +75,7 @@ public class App {
                     }
                     break;
                 case 2:
-                    if (employee.getEndTime() == null){
+                    if (employee.getEndTime() == null) {
                         employee.clockOutInput();
                         System.out.println("Checked out with user-set time successfully.");
                         break;
@@ -84,7 +84,7 @@ public class App {
                     }
                     break;
                 case 3:
-                    if (employee.getEndTime() == null){
+                    if (employee.getEndTime() == null) {
                         employee.clockOutReal();
                         System.out.println("Checked out with real-time successfully.");
                         break;
@@ -98,17 +98,17 @@ public class App {
         }
     }
 
-    //naqash
+    // naqash
     private static void regEmployee(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
         int choice;
-        
+
         do {
             System.out.println("Enter the employee name: ");
             String name = input.nextLine();
             System.out.println("Enter the employee ID: ");
             String id = input.nextLine();
-            
+
             Employee emp = new Employee(id);
             emp.setName(name);
             employeeList.add(emp);
@@ -135,7 +135,7 @@ public class App {
             input.nextLine();
 
         } while (choice == 1);
-    }           
+    }
 
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
         for (Employee employee : employeeList) {
@@ -145,8 +145,8 @@ public class App {
         }
         return null;
     }
-    
-    public static void hoursRecord(ArrayList<Employee> employeeList){
+
+    public static void hoursRecord(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter employee ID to show Hours Records (First 22 records): ");
@@ -154,19 +154,19 @@ public class App {
 
         Employee employee = findEmployee(employeeList, employeeID);
 
-        if(employee != null){
+        if (employee != null) {
             System.out.println("Employee Working Hours Records (First 22 records):");
             System.out.println("------------------------------------------------");
             System.out.println("Employee ID: " + employee.getEmployeeID());
             System.out.println("Employee name: " + employee.getName());
 
-            for(int i = 0; i < employee.getHoursArray().length; i++){
-                if(employee.getHoursArray()[i] == null){
-                    System.out.println("Hours worked on day " + (i+1) + ": " + "unregistered");
+            for (int i = 0; i < employee.getHoursArray().length; i++) {
+                if (employee.getHoursArray()[i] == null) {
+                    System.out.println("Hours worked on day " + (i + 1) + ": " + "unregistered");
                 } else {
-                    //String hours = employee.getHoursArray()[i].toString();
+                    // String hours = employee.getHoursArray()[i].toString();
                     var hours = employee.getHoursArray()[i];
-                    System.out.println("Hours worked on day " + (i+1) + ": " +  String.format("%.1f", hours));
+                    System.out.println("Hours worked on day " + (i + 1) + ": " + String.format("%.1f", hours));
                 }
             }
         } else {
@@ -178,7 +178,7 @@ public class App {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         int exit = 1;
- System.out.println("--------Welcome!!----------\n Please choose appropriate options. ");
+        System.out.println("--------Welcome!!----------\n Please choose appropriate options. ");
         while (exit != 0) {
             System.out.println("");
             System.out.println("Main Menu:");
