@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class App {
 
-    // hakimi
+    //Mohamad Nur Hakimi bin Asmadi (2213091)
     public static void calculateSalary(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
@@ -43,7 +43,7 @@ public class App {
         }
     }
 
-    // Firdaus Muahammad Salman(2223281)
+    // Firdaus Muahammad Salman (2223281)
     private static void checkInOrOut(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
@@ -137,6 +137,7 @@ public class App {
         } while (choice == 1);
     }
 
+    // Firdaus Muahammad Salman (2223281)
     private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
         for (Employee employee : employeeList) {
             if (employee.getEmployeeID().equals(employeeID)) {
@@ -146,6 +147,7 @@ public class App {
         return null;
     }
 
+    //Mohamad Nur Hakimi bin Asmadi (2213091)
     public static void hoursRecord(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
@@ -175,7 +177,7 @@ public class App {
         }
     }
 
-    // Firdaus Muahammad Salman(2223281)
+    // Firdaus Muahammad Salman (2223281)
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
