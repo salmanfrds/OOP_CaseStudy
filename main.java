@@ -155,6 +155,7 @@ public class App {
         Employee employee = findEmployee(employeeList, employeeID);
 
         if (employee != null) {
+            System.out.println("");
             System.out.println("Employee Working Hours Records (First 22 records):");
             System.out.println("------------------------------------------------");
             System.out.println("Employee ID: " + employee.getEmployeeID());
@@ -166,7 +167,7 @@ public class App {
                 } else {
                     // String hours = employee.getHoursArray()[i].toString();
                     var hours = employee.getHoursArray()[i];
-                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + String.format("%.1f", hours));
+                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + String.format("%.1f", hours) + " hrs");
                 }
             }
         } else {
