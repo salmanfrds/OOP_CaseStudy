@@ -98,7 +98,7 @@ public class App {
         }
     }
 
-    // naqash
+    // Naqash Mohd Aouf (2224251)
     private static void regEmployee(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
         int choice;
