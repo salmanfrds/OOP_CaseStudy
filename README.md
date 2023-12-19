@@ -3,7 +3,7 @@ case study OOP sem 1 2023/2024
 
 Firdaus Muhammad Salman 2223281
 - Employee Class
-- Main Method
+- main method
 - FindEmployee method
 - checkInOrOur method
 - Fixing Errors
@@ -18,10 +18,11 @@ Naqash Mohd Aouf 2224251
 - regEmployee
 - Testing & Code Improvement
 
-Wellcome to our groups program, we crate a payroll management systemn, the user(manager) can access this program and calculate the employees salary, it has 4 main features.
-1. Register Employee
-2. Check out and Check in the employee working time
-3. Calculate employees salary per work hours
-4. Track record of the employee recent hours of working(22 first working hours)
+Welcome to our group’s program! We have created a payroll management system that allows the user (manager) to access the program and calculate the employees’ salaries. The system has four main features:
 
-The class diagram will be provided later.
+1. Register Employee
+2. Check-in and Check-out of employee working time
+3. Calculate employees’ salary per work hour
+4. Track record of the employee’s recent working hours (first 22 working hours)
+
+The class diagram will be provided in I-taleem.m
