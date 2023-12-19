@@ -162,11 +162,11 @@ public class App {
 
             for (int i = 0; i < employee.getHoursArray().length; i++) {
                 if (employee.getHoursArray()[i] == null) {
-                    System.out.println("Hours worked on day " + (i + 1) + ": " + "unregistered");
+                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + "unregistered");
                 } else {
                     // String hours = employee.getHoursArray()[i].toString();
                     var hours = employee.getHoursArray()[i];
-                    System.out.println("Hours worked on day " + (i + 1) + ": " + String.format("%.1f", hours));
+                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + String.format("%.1f", hours));
                 }
             }
         } else {
