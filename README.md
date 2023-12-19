@@ -26,3 +26,8 @@ Welcome to our group’s program! We have created a payroll management system th
 4. Track record of the employee’s recent working hours (first 22 working hours)
 
 The class diagram will be provided in I-taleem. :)
+
+source:
+https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
+https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html
+https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
