@@ -44,7 +44,7 @@ public class App {
     }
 
     // Firdaus Muahammad Salman (2223281)
-    private static void checkInOrOut(ArrayList<Employee> employeeList) {
+    public static void checkInOrOut(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter employee ID: ");
@@ -99,7 +99,7 @@ public class App {
     }
 
     // Naqash Mohd Aouf (2224251)
-    private static void regEmployee(ArrayList<Employee> employeeList) {
+    public static void regEmployee(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
         int choice;
 
@@ -138,7 +138,7 @@ public class App {
     }
 
     // Firdaus Muahammad Salman (2223281)
-    private static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
+    public static Employee findEmployee(ArrayList<Employee> employeeList, String employeeID) {
         for (Employee employee : employeeList) {
             if (employee.getEmployeeID().equals(employeeID)) {
                 return employee;
