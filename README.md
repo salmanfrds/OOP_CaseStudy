@@ -26,6 +26,8 @@ Welcome to our group’s program! We have created a payroll management system th
 4. Track record of the employee’s recent working hours (first 22 working hours)
    
    Example of code interface :
+
+   
    ![Screenshot 2023-12-27 185333](https://github.com/salmanfrds/OOP_CaseStudy/assets/153048665/42a01abc-b281-48cf-864d-4a33584f6bf8)
 
 
