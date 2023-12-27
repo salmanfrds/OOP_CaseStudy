@@ -33,6 +33,11 @@ Welcome to our group’s program! We have created a payroll management system th
 
 Class Diagram: ![Screenshot 2023-12-19 174914](https://github.com/salmanfrds/OOP_CaseStudy/assets/153048665/d23f7118-9250-476a-a50c-14764b6f430d)
 
+Check-in and check-out system example: 
+
+
+![WhatsApp Image 2023-12-27 at 18 15 12_86a24011](https://github.com/salmanfrds/OOP_CaseStudy/assets/153048665/e460c014-90ab-432c-8630-acd27d0d9146)
+
 
 source:
 https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
