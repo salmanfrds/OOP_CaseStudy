@@ -6,38 +6,40 @@ public class App {
     //Mohamad Nur Hakimi bin Asmadi (2213091)
     public static void calculateSalary(ArrayList<Employee> employeeList) {
         Scanner input = new Scanner(System.in);
-
+    
         System.out.println("Enter employee ID to calculate salary: ");
         String employeeID = input.next();
-
+    
         Employee employee = findEmployee(employeeList, employeeID);
-
+    
         if (employee != null) {
             if (employee.getStartTime() == null || employee.getEndTime() == null) {
                 System.out.println("Employee has not checked in or out. Cannot calculate salary");
             } else {
                 double hoursWorked = employee.calculateHours();
                 employee.storeHours(hoursWorked);
-
+    
                 if (hoursWorked < 1.0) {
                     System.out.println("Working hours are less than 1 hour. Cannot calculate salary");
                     employee.reset();
                 } else {
-                    double salary = 6 * hoursWorked;
-                    double epfContribution = 0.11 * salary;
-                    salary -= epfContribution;
-
+                    double grossSalary = 6 * hoursWorked;
+                    double epfContribution = 0.11 * grossSalary;
+                    double netSalary = grossSalary - epfContribution;
+    
                     System.out.println("");
                     System.out.println("Employee ID: " + employee.getEmployeeID());
                     System.out.println("Employee Name: " + employee.getName());
                     System.out.println("Employee Hours Worked: " + String.format("%.1f", hoursWorked));
-                    System.out.println("Total salary (after EPF deduction): RM " + String.format("%.1f", salary));
+                    System.out.println("Gross Salary: RM " + String.format("%.1f", grossSalary));
+                    System.out.println("EPF Contribution (11%): RM " + String.format("%.1f", epfContribution));
+                    System.out.println("Net Salary (after EPF deduction): RM " + String.format("%.1f", netSalary));
                     System.out.println("");
-
+    
                     employee.reset();
                 }
             }
-
+    
         } else {
             System.out.println("Employee not found.");
         }
@@ -163,17 +165,25 @@ public class App {
             System.out.println("Employee ID: " + employee.getEmployeeID());
             System.out.println("Employee name: " + employee.getName());
 
+            double totalHours = 0.0;
             for (int i = 0; i < employee.getHoursArray().length; i++) {
                 if (employee.getHoursArray()[i] == null) {
-                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + "unregistered");
+                    double randomHours = 1 + (Math.random() * 12);
+                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + String.format("%.2f", randomHours) + " hrs" + "\tRandom Generated");
+                    totalHours += randomHours;
                 } else {
-                    // String hours = employee.getHoursArray()[i].toString();
                     var hours = employee.getHoursArray()[i];
-                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + String.format("%.1f", hours) + " hrs");
+                    System.out.println("Hours worked on day " + (i + 1) + "\t: " + String.format("%.2f", hours) + " hrs");
+                    totalHours += hours;
                 }
             }
-        } else {
-            System.out.println("Employee not found.");
+
+            System.out.println("------------------------------------------------");
+            System.out.println("Total hours worked: " + String.format("%.2f", totalHours) + " hrs");
+            totalSalary(totalHours);
+
+            } else {
+                System.out.println("Employee not found.");
         }
     }
 
@@ -218,5 +228,17 @@ public class App {
             }
         }
         input.close();
+    }
+
+    public static void totalSalary(double totalHours) {
+        double salaryPerHour = 6.0;
+        double grossSalary = totalHours * salaryPerHour;
+        double epfContribution = grossSalary * 0.11;
+        double netSalary = grossSalary - epfContribution;
+    
+        System.out.println("------------------------------------------------");
+        System.out.println("Gross Salary: RM " + String.format("%.2f", grossSalary));
+        System.out.println("EPF Contribution (11%): RM " + String.format("%.2f", epfContribution));
+        System.out.println("Net Salary (after EPF deduction): RM " + String.format("%.2f", netSalary));
     }
 }
