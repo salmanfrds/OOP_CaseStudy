@@ -25,7 +25,8 @@ Welcome to our group’s program! We have created a payroll management system th
 3. Calculate employees’ salary per work hour
 4. Track record of the employee’s recent working hours (first 22 working hours)
 
-Class Diagram: https://1drv.ms/i/s!ApZUjKmQiYotkXyGYpYR_DYlSIBy?e=hdkrDD
+Class Diagram: ![Screenshot 2023-12-19 174914](https://github.com/salmanfrds/OOP_CaseStudy/assets/153048665/d23f7118-9250-476a-a50c-14764b6f430d)
+
 
 source:
 https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
